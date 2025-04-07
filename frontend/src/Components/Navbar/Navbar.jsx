@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/codexcoder.webp";
-
+import About from "../../Pages/About/About"
 const Navbar = () => {
   return (
     <nav style={{ display: "flex", height: "80px", alignItems: "center", marginTop: "20px" }}>
