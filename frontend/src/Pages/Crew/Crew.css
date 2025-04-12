@@ -1,0 +1,72 @@
+.crew-section {
+    padding: 4rem 2rem;
+    background-color: #0a192f;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+  }
+  
+  .crew-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: white;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+  }
+  
+  .highlight {
+    color: #3498db;
+  }
+  
+  .crew-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .crew-card {
+    background-color: #1f2a40;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+  }
+  
+  .crew-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.4);
+  }
+  
+  .crew-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    color: #61dafb;
+  }
+  
+  .crew-role {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+  }
+  
+  .crew-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ddd;
+    margin-bottom: 1.2rem;
+  }
+  
+  .crew-link {
+    font-weight: bold;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .crew-link:hover {
+    color: #61dafb;
+  }
+  

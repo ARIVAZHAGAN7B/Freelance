@@ -1,0 +1,83 @@
+/* Testimonial Section */
+.testimonials {
+  padding: 4rem 2rem;
+  background-color: #0A192F; /* Updated to match the overall brand color */
+  color: white;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #3498db; /* Light blue for consistency with the theme */
+}
+
+.testimonials-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background-color: #1f2a40; /* Darker background to align with the theme */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  font-style: italic;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  position: relative;
+}
+
+.testimonial-card p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #ddd; /* Slightly lighter text color for readability */
+}
+
+.testimonial-card footer {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #61dafb; /* Light blue to highlight the names */
+  font-size: 1rem;
+}
+
+.testimonial-card:hover {
+  background-color: #263449; /* Slightly lighter on hover */
+  transform: translateY(-5px);
+}
+
+.testimonial-card::before {
+  content: '“';
+  font-size: 3rem;
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  color: #3498db; /* Light blue for the quotation mark */
+}
+
+.testimonial-card::after {
+  content: '”';
+  font-size: 3rem;
+  position: absolute;
+  bottom: -20px;
+  right: 10px;
+  color: #3498db; /* Light blue for the quotation mark */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .testimonials-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial-card {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,63 @@
+.aboutus-container {
+    background-color: #0A192F;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .aboutus-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+  }
+  
+  .highlight {
+    color: #3498db;
+  }
+  
+  .aboutus-card {
+    background-color: #1f2a40;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .aboutus-card:hover {
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.4);
+  }
+  
+  .aboutus-card-title {
+    font-size: 20px;
+    color: #61dafb;
+    margin-bottom: 12px;
+  }
+  
+  .aboutus-list {
+    list-style: disc;
+    padding-left: 20px;
+    color: #ddd;
+  }
+  
+  .aboutus-list li {
+    margin-bottom: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .aboutus-container {
+      padding: 40px 15px;
+    }
+  
+    .aboutus-title {
+      font-size: 30px;
+    }
+  
+    .aboutus-card-title {
+      font-size: 18px;
+    }
+  }
+  

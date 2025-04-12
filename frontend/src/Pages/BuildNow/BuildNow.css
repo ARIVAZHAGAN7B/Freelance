@@ -1,0 +1,137 @@
+/* General Styles */
+.build-now-container {
+    background-color: #0A192F;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .build-now-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+  }
+  
+  .build-now-container p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ddd;
+  }
+  
+  /* Table Styles */
+  .build-now-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+  
+  .build-now-table th,
+  .build-now-table td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #333;
+  }
+  
+  .build-now-table th {
+    background-color: #444;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  
+  .build-now-table td {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .build-now-table tr:nth-child(even) td {
+    background-color: #444;
+  }
+  
+  .build-now-table tr:hover td {
+    background-color: #555;
+  }
+  
+  /* Section Titles */
+  .build-now-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  /* Process List */
+  .build-now-container ol {
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+  }
+  
+  .build-now-container ol li {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Testimonials */
+  blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ccc;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: #444;
+    border-left: 5px solid #3498db;
+  }
+  
+  blockquote p {
+    margin: 0;
+  }
+  
+  blockquote footer {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+    color: #3498db;
+  }
+  
+  /* Call to Action */
+  .build-now-container a {
+    color: #3498db;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .build-now-container a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .build-now-container {
+      padding: 2rem 1rem;
+    }
+  
+    .build-now-title {
+      font-size: 2rem;
+    }
+  
+    .build-now-container h2 {
+      font-size: 1.8rem;
+    }
+  
+    .build-now-table th,
+    .build-now-table td {
+      font-size: 1rem;
+      padding: 0.8rem;
+    }
+  
+    .build-now-container ol li {
+      font-size: 1rem;
+    }
+  }
+  
