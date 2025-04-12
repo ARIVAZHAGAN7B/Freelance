@@ -14,7 +14,7 @@ const Navbar = () => {
         <ul style={{
           display: "flex",
           gap: "30px",
-          listStyle: "none",
+          listStyle: "bullet",
           fontSize: "20px",
           padding: "10px 20px",
           borderRadius: "5px",
