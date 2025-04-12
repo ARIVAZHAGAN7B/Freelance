@@ -1,5 +1,5 @@
 import React from "react";
-import "./WhyUs.css";
+import "./Whyus.css";
 
 const WhyUs = () => {
   const sections = [

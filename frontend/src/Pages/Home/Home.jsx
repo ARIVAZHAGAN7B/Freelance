@@ -3,18 +3,35 @@ import { Link } from "react-router-dom";
 import './Home.css';
 
 const HomePage = () => {
-  const [user,Setuser] = useState({
-    username:"",
-    email:"",
-    projectdetails:""
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    projectdetails: ""
   });
+
   const handleChange = (e) => {
-    Setuser({
+    setUser({
       ...user,
-      [e.target.name]:e.target.value
-    })
-  }
-  cosnt 
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (!user.username || !user.email || !user.projectdetails) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    console.log("Form submitted:", user);
+
+    // Reset form
+    setUser({
+      username: "",
+      email: "",
+      projectdetails: ""
+    });
+  };
+
   return (
     <div className="homepage">
       <div className="container">
@@ -29,7 +46,7 @@ const HomePage = () => {
         <section className="showcase">
           <h2 className="section-title">Our Work</h2>
           <div className="showcase-grid">
-            {[1, 2, 3,4,5,6,7,8].map((i) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
               <div key={i} className="showcase-card">
                 <div className="showcase-image"></div>
                 <div className="showcase-info">Project {i}</div>
@@ -56,9 +73,30 @@ const HomePage = () => {
           <h2 className="section-title">Let’s Talk</h2>
           <p>Tell us about your project and let's build something amazing together.</p>
           <form className="form">
-            <input className="input-field" type="text" placeholder="Your Name" value={user.username} onChange={handleChange} name="username"/>
-            <input className="input-field" type="email" placeholder="Your Email" value={user.email} onChange={handleChange} name="" />
-            <textarea className="input-field" rows="4" placeholder="Short Description of Your Project Details" value={user.projectdetails} onChange={handleChange}></textarea>
+            <input
+              className="input-field"
+              type="text"
+              placeholder="Your Name"
+              value={user.username}
+              onChange={handleChange}
+              name="username"
+            />
+            <input
+              className="input-field"
+              type="email"
+              placeholder="Your Email"
+              value={user.email}
+              onChange={handleChange}
+              name="email"
+            />
+            <textarea
+              className="input-field"
+              rows="4"
+              placeholder="Short Description of Your Project Details"
+              value={user.projectdetails}
+              onChange={handleChange}
+              name="projectdetails"
+            ></textarea>
             <button className="btn-primary" onClick={handleClick}>Submit</button>
           </form>
         </section>
@@ -75,19 +113,18 @@ const HomePage = () => {
 
         {/* 6. Animated Scroll Effects */}
         <section className="stats">
-              <div className="stats-grid">
-                <div className="stat-card">
-                  10+ <div>Websites Delivered</div>
-                </div>
-                <div className="stat-card">
-                  15+ <div>Happy Clients</div>
-                </div>
-                <div className="stat-card">
-                  1+ <div>Years of Experience</div>
-                </div>
-              </div>
+          <div className="stats-grid">
+            <div className="stat-card">
+              10+ <div>Websites Delivered</div>
+            </div>
+            <div className="stat-card">
+              15+ <div>Happy Clients</div>
+            </div>
+            <div className="stat-card">
+              1+ <div>Years of Experience</div>
+            </div>
+          </div>
         </section>
-
 
         {/* 7. Video Section */}
         <section className="video-section">
@@ -102,74 +139,67 @@ const HomePage = () => {
 
         {/* 8. Testimonials */}
         <section className="testimonials">
-              <h2 className="section-title">What Clients Say</h2>
-              <div className="testimonials-list">
-                {[
-                  "Best experience!",
-                  "Truly professional team.",
-                  "Delivered beyond expectations!",
-                  "Excellent communication throughout the project.",
-                  "Fantastic work, highly recommend them.",
-                  "A team that truly understands the client's needs.",
-                  "The best decision we made was to work with them.",
-                  "Efficient, creative, and results-driven!",
-                  "Their attention to detail was exceptional.",
-                  "Extremely satisfied with the outcome!"
-                ].map((quote, i) => (
-                  <blockquote key={i} className="testimonial-card">{quote}</blockquote>
-                ))}
-              </div>
+          <h2 className="section-title">What Clients Say</h2>
+          <div className="testimonials-list">
+            {[
+              "Best experience!",
+              "Truly professional team.",
+              "Delivered beyond expectations!",
+              "Excellent communication throughout the project.",
+              "Fantastic work, highly recommend them.",
+              "A team that truly understands the client's needs.",
+              "The best decision we made was to work with them.",
+              "Efficient, creative, and results-driven!",
+              "Their attention to detail was exceptional.",
+              "Extremely satisfied with the outcome!"
+            ].map((quote, i) => (
+              <blockquote key={i} className="testimonial-card">{quote}</blockquote>
+            ))}
+          </div>
         </section>
 
-        <br/>
         {/* 9. Featured Services */}
         <section className="services">
-              <h2 className="section-title">What We Offer</h2>
-              <div className="marquee-wrapper">
-                <div className="marquee-content">
-                  {/* First batch of services */}
-                  {[
-                    'Custom Websites',
-                    'E-commerce',
-                    'UI/UX Design',
-                    'Web Apps',
-                    'Dashboards',
-                    'Booking Systems',
-                    'Content Management Systems (CMS)',
-                    'Real-Time Applications',
-                    'Social Media Platforms',
-                    'Membership Systems'
-                  ].map((service, i) => (
-                    <div key={i} className="service-card">
-                      <h3 className="service-title">{service}</h3>
-                    </div>
-                  ))}
+          <h2 className="section-title">What We Offer</h2>
+          <div className="marquee-wrapper">
+            <div className="marquee-content">
+              {[
+                'Custom Websites',
+                'E-commerce',
+                'UI/UX Design',
+                'Web Apps',
+                'Dashboards',
+                'Booking Systems',
+                'Content Management Systems (CMS)',
+                'Real-Time Applications',
+                'Social Media Platforms',
+                'Membership Systems'
+              ].map((service, i) => (
+                <div key={i} className="service-card">
+                  <h3 className="service-title">{service}</h3>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
         </section>
-
-
-
-
 
         {/* 10. Social Proof */}
         <section className="social-proof">
-              <h2 className="section-title">Follow Us</h2>
-              <div className="social-links">
-                {[
-                  { platform: "Instagram", url: "https://www.instagram.com/codexcoders/" },
-                  { platform: "LinkedIn", url: "https://www.linkedin.com/in/codexcoder-s-b2276a35b/" },
-                  { platform: "X", url: "https://x.com/codeXcoders1" }
-                ].map((social, i) => (
-                  <a key={i} href={social.url} className="social-link" target="_blank" rel="noopener noreferrer">
-                    {social.platform}
-                  </a>
-                ))}
-              </div>
-         </section>
+          <h2 className="section-title">Follow Us</h2>
+          <div className="social-links">
+            {[
+              { platform: "Instagram", url: "https://www.instagram.com/codexcoders/" },
+              { platform: "LinkedIn", url: "https://www.linkedin.com/in/codexcoder-s-b2276a35b/" },
+              { platform: "X", url: "https://x.com/codeXcoders1" }
+            ].map((social, i) => (
+              <a key={i} href={social.url} className="social-link" target="_blank" rel="noopener noreferrer">
+                {social.platform}
+              </a>
+            ))}
+          </div>
+        </section>
 
-
-        {/* 11. Engaging Footer */}
+        {/* 11. Footer */}
         <footer className="footer">
           <p>&copy; 2025 CodeXCoders. All rights reserved.</p>
           <div className="footer-links">
@@ -180,7 +210,7 @@ const HomePage = () => {
         </footer>
       </div>
 
-      {/* 12. Sticky CTA - stays outside container */}
+      {/* 12. Sticky CTA */}
       <div className="sticky-cta">
         <Link to="/build" className="btn-primary">Get Started</Link>
       </div>
