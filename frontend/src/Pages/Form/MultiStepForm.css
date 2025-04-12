@@ -1,0 +1,177 @@
+/* Main container */
+.multi-step-form {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Progress bar container */
+  .progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding: 10px 0;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  /* Individual step in the progress bar */
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  
+  /* Circle representing step */
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #666;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Circle for completed step */
+  .circle.completed {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+  }
+  
+  /* Circle for active step */
+  .circle.active {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+  }
+  
+  /* Line connecting steps */
+  .line {
+    height: 3px;
+    background-color: #ccc;
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    right: -50%;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+  
+  /* Step label text */
+  .step-label {
+    margin-top: 8px;
+    font-size: 12px;
+    text-align: center;
+    width: 80px;
+    word-wrap: break-word;
+    color: #444;
+  }
+  
+  /* Form container */
+  .form-container {
+    padding: 30px 20px;
+    border-top: 1px solid #eee;
+  }
+  
+  /* Form step structure */
+  .form-step {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Form label */
+  .form-step label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+  }
+  
+  /* Form input elements */
+  .form-step input,
+  .form-step select,
+  .form-step textarea {
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Input focus effect */
+  .form-step input:focus,
+  .form-step select:focus,
+  .form-step textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Textarea specific styles */
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  /* Form navigation buttons */
+  .form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  /* Button styling */
+  .form-navigation button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Disabled button styling */
+  .form-navigation button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Button hover effect */
+  .form-navigation button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  /* Progress bar transition */
+  .progress-bar .circle.active + .line {
+    background-color: #007bff;
+  }
+  
+  .progress-bar .circle.completed + .line {
+    background-color: #28a745;
+  }
+  
+  /* Additional spacing between elements */
+  .form-step input,
+  .form-step select,
+  .form-step textarea {
+    margin-bottom: 12px;
+  }
+  

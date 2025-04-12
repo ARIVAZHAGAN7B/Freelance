@@ -1,137 +1,264 @@
 /* General Styles */
 .build-now-container {
-    background-color: #0A192F;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 60px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
+  background-color: #0a192f;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.build-now-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.build-now-container p {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ddd;
+}
+
+/* Table Styles */
+.build-now-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.build-now-table th,
+.build-now-table td {
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid #333;
+}
+
+.build-now-table th {
+  background-color: #444;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.build-now-table td {
+  background-color: #333;
+  color: #fff;
+}
+
+.build-now-table tr:nth-child(even) td {
+  background-color: #444;
+}
+
+.build-now-table tr:hover td {
+  background-color: #555;
+}
+
+/* Section Titles */
+.build-now-container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+/* Process List */
+.build-now-container ol {
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+}
+
+.build-now-container ol li {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Testimonials */
+blockquote {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #ccc;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #444;
+  border-left: 5px solid #3498db;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote footer {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: right;
+  color: #3498db;
+}
+
+/* Lock Overlay */
+.lock-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lock-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.lock-form h2 {
+  margin-bottom: 1rem;
+}
+
+.lock-form input,
+.lock-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.lock-form button {
+  background-color: #4b0082;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.lock-form button:hover {
+  background-color: #360063;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .build-now-container {
+    padding: 2rem 1rem;
   }
-  
+
   .build-now-title {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 40px;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
+    font-size: 2rem;
   }
-  
-  .build-now-container p {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #ddd;
+
+  .build-now-container h2 {
+    font-size: 1.8rem;
   }
-  
-  /* Table Styles */
-  .build-now-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 2rem;
-  }
-  
+
   .build-now-table th,
   .build-now-table td {
-    padding: 1rem;
-    text-align: left;
-    border: 1px solid #333;
-  }
-  
-  .build-now-table th {
-    background-color: #444;
-    color: #fff;
-    font-size: 1.2rem;
-  }
-  
-  .build-now-table td {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .build-now-table tr:nth-child(even) td {
-    background-color: #444;
-  }
-  
-  .build-now-table tr:hover td {
-    background-color: #555;
-  }
-  
-  /* Section Titles */
-  .build-now-container h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #fff;
-  }
-  
-  /* Process List */
-  .build-now-container ol {
-    margin-bottom: 2rem;
-    padding-left: 2rem;
-  }
-  
-  .build-now-container ol li {
-    font-size: 1.1rem;
-    color: #ccc;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-  
-  /* Testimonials */
-  blockquote {
-    font-size: 1.2rem;
-    font-style: italic;
-    color: #ccc;
-    margin: 1.5rem 0;
-    padding: 1rem;
-    background-color: #444;
-    border-left: 5px solid #3498db;
-  }
-  
-  blockquote p {
-    margin: 0;
-  }
-  
-  blockquote footer {
     font-size: 1rem;
-    font-weight: bold;
-    text-align: right;
-    color: #3498db;
+    padding: 0.8rem;
   }
-  
-  /* Call to Action */
-  .build-now-container a {
-    color: #3498db;
-    font-weight: bold;
-    text-decoration: none;
+
+  .build-now-container ol li {
+    font-size: 1rem;
   }
-  
-  .build-now-container a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
-    .build-now-container {
-      padding: 2rem 1rem;
-    }
-  
-    .build-now-title {
-      font-size: 2rem;
-    }
-  
-    .build-now-container h2 {
-      font-size: 1.8rem;
-    }
-  
-    .build-now-table th,
-    .build-now-table td {
-      font-size: 1rem;
-      padding: 0.8rem;
-    }
-  
-    .build-now-container ol li {
-      font-size: 1rem;
-    }
-  }
-  
+}
+
+/* Basic styles for the page */
+.build-now-container {
+  position: relative;
+  padding: 20px;
+}
+
+.build-now-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.build-now-content {
+  margin-top: 20px;
+}
+
+/* Table styling */
+.build-now-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.build-now-table th, .build-now-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.build-now-table th {
+  background-color: #f4f4f4;
+}
+
+/* Lock overlay to blur background */
+.lock-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Darken background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px); /* Add blur effect */
+  z-index: 999; /* Ensure it stays on top */
+}
+
+/* Form styling inside the lock-overlay */
+.lock-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  width: 300px;
+}
+
+.lock-form input,
+.lock-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.lock-form button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.lock-form button:hover {
+  background-color: #45a049;
+}
+
+.lock-form .cancel-button {
+  background-color: #f44336;
+}
+
+.lock-form .cancel-button:hover {
+  background-color: #da190b;
+}
+
