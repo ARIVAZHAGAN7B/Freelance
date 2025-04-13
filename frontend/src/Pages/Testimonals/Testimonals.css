@@ -1,18 +1,23 @@
 /* Testimonial Section */
 .testimonials {
-  padding: 4rem 2rem;
-  background-color: #0A192F; /* Updated to match the overall brand color */
+  background-color: #0A192F;
   color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: 36px;
   text-align: center;
-  margin-bottom: 2rem;
-  color: #3498db; /* Light blue for consistency with the theme */
+  margin-bottom: 40px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
 }
-
+.client-details h3{
+  color: #3498db;
+}
 .testimonials-list {
   display: flex;
   flex-wrap: wrap;
@@ -21,51 +26,58 @@
 }
 
 .testimonial-card {
-  background-color: #1f2a40; /* Darker background to align with the theme */
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  background-color: #1f2a40;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  transition: box-shadow 0.3s ease;
+  width: 1100px;  /* Set the width to 1100px */
   text-align: center;
   font-style: italic;
-  transition: transform 0.3s ease, background-color 0.3s ease;
   position: relative;
-}
-
-.testimonial-card p {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: #ddd; /* Slightly lighter text color for readability */
-}
-
-.testimonial-card footer {
-  margin-top: 1rem;
-  font-weight: bold;
-  color: #61dafb; /* Light blue to highlight the names */
-  font-size: 1rem;
+  min-height: auto; /* Remove fixed height to let it adjust based on content */
 }
 
 .testimonial-card:hover {
-  background-color: #263449; /* Slightly lighter on hover */
-  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.4);
+}
+
+.testimonial-card p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #ddd;
+}
+
+.testimonial-card footer {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: #61dafb;
+  font-size: 1.1rem;
+}
+
+/* Move the company name next to the client name */
+.testimonial-card .company-name {
+  font-weight: normal;
+  color: #61dafb;
+  margin-left: 10px; /* Add some space between name and company */
 }
 
 .testimonial-card::before {
   content: '“';
-  font-size: 3rem;
+  font-size: 3.5rem;
   position: absolute;
-  top: -20px;
-  left: 10px;
-  color: #3498db; /* Light blue for the quotation mark */
+  top: -25px;
+  left: 15px;
+  color: #3498db;
 }
 
 .testimonial-card::after {
   content: '”';
-  font-size: 3rem;
+  font-size: 3.5rem;
   position: absolute;
-  bottom: -20px;
-  right: 10px;
-  color: #3498db; /* Light blue for the quotation mark */
+  bottom: -25px;
+  right: 15px;
+  color: #3498db;
 }
 
 /* Media Queries for Responsiveness */
@@ -77,7 +89,7 @@
 
   .testimonial-card {
     width: 100%;
-    max-width: 500px;
-    margin-bottom: 1rem;
+    max-width: 600px; /* Adjust for smaller screens */
+    margin-bottom: 2rem;
   }
 }

@@ -1,31 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './MultiStepForm.css';
 
 const steps = [
-  'About Brand',
-  'Purpose',
-  'Site Structure',
-  'Design Preferences',
-  'Functionalities',
-  'Hosting & Domain',
-  'Support & Budget',
-  'Maintenance Mode',
-  'Integrations',
-  'Backups',
-  'Legal & Socials',
-  'Custom Forms'
+  "About Brand", "Purpose", "Pages & Roles", "Design", "Functionality",
+  "Domain & Hosting", "Support & Timeline", "Maintenance Mode", "Third-party Integration",
+  "Backups", "Legal & Social", "Custom Form"
 ];
 
 const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({});
+  const formWrapperRef = useRef(null);
+
+  useEffect(() => {
+    if (formWrapperRef.current) {
+      window.scrollTo({
+        top: formWrapperRef.current.offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  }, [currentStep]);
 
   const handleChange = (e) => {
-    const { name, value, type, files } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'file' ? files[0] : value
+    const { name, value, files } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: files ? files[0] : value,
     }));
+  };
+
+  const nextStep = () => {
+    if (currentStep < steps.length - 1) {
+      setCurrentStep((prev) => prev + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep((prev) => prev - 1);
+    }
+  };
+
+  const goToStep = (index) => {
+    setCurrentStep(index);
   };
 
   const renderStep = () => {
@@ -33,63 +50,36 @@ const MultiStepForm = () => {
       case 0:
         return (
           <>
-            <label>
-              Brand Name*:
-              <input type="text" name="brandName" required onChange={handleChange} />
-            </label>
-            <label>
-              Brand Logo*:
-              <input type="file" name="brandLogo" required onChange={handleChange} />
-            </label>
-            <label>
-              Target Audience*:
-              <select name="targetAudience" required onChange={handleChange}>
+            <label>Brand Name* <input type="text" name="brandName" onChange={handleChange} required /></label>
+            <label>Brand Logo* <input type="file" name="brandLogo" onChange={handleChange} required /></label>
+            <label>Target Audience* 
+              <select name="targetAudience" onChange={handleChange} required>
                 <option value="">Select</option>
                 <option value="child">Child</option>
-                <option value="teens">Teens</option>
                 <option value="adult">Adult</option>
+                <option value="teens">Teens</option>
                 <option value="aged">Aged</option>
                 <option value="all">All</option>
               </select>
             </label>
-            <label>
-              Competitor Websites*:
-              <textarea name="competitors" required onChange={handleChange} />
-            </label>
-            <label>
-              Additional Brand Info:
-              <textarea name="brandInfo" onChange={handleChange} />
-            </label>
+            <label>Competitor Websites <textarea name="competitors" onChange={handleChange} /></label>
+            <label>Additional Requirements <textarea name="additionalRequirements" onChange={handleChange} /></label>
           </>
         );
       case 1:
         return (
           <>
-            <label>
-              Website Purpose*:
-              <select name="purpose" required onChange={handleChange}>
-                <option value="">Select</option>
-                <option value="ecommerce">E-Commerce</option>
-                <option value="booking">Booking</option>
-                <option value="portfolio">Portfolio</option>
-                <option value="blog">Blog</option>
-                <option value="custom">Custom</option>
-              </select>
-            </label>
-            <label>
-              New Website or Redesign*:
-              <select name="siteType" required onChange={handleChange}>
-                <option value="">Select</option>
+            <label>Purpose <input type="text" name="purpose" onChange={handleChange} /></label>
+            <label>New or Redesign?
+              <select name="redesign" onChange={handleChange}>
                 <option value="new">New Website</option>
-                <option value="redesign">Redesign Existing</option>
+                <option value="redesign">Redesign</option>
               </select>
             </label>
-            <label>
-              Do You Have UI Already?
-              <select name="hasUI" onChange={handleChange}>
-                <option value="">Select</option>
+            <label>Existing UI? 
+              <select name="existingUI" onChange={handleChange}>
                 <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="no">No, need to create</option>
               </select>
             </label>
           </>
@@ -97,194 +87,136 @@ const MultiStepForm = () => {
       case 2:
         return (
           <>
-            <label>
-              Pages (Navbar):
-              <input type="text" name="pages" onChange={handleChange} placeholder="Home, About, Contact..." />
-            </label>
-            <label>
-              Roles:
-              <input type="text" name="roles" onChange={handleChange} placeholder="admin, user, teacher..." />
-            </label>
-            <label>
-              Conditional Rendering Details:
-              <textarea name="conditionalRendering" onChange={handleChange} />
-            </label>
-            <label>
-              Links Between Roles:
-              <textarea name="roleLinks" onChange={handleChange} />
-            </label>
-            <label>
-              Highlight Text/Image:
-              <textarea name="highlight" onChange={handleChange} />
-            </label>
-            <label>
-              Contact Info Placement:
-              <select name="contactInfo" onChange={handleChange}>
-                <option value="">Select</option>
-                <option value="individual">On Individual Pages</option>
-                <option value="footer">Footer Only</option>
-              </select>
-            </label>
+            <label>Navbar Pages (comma-separated) <input type="text" name="navbarPages" onChange={handleChange} /></label>
+            <label>User Roles <input type="text" name="roles" onChange={handleChange} /></label>
+            <label>Conditional Rendering Rules <textarea name="renderingRules" onChange={handleChange} /></label>
+            <label>Role Links (e.g. Teacher → Student) <input type="text" name="roleLinks" onChange={handleChange} /></label>
+            <label>Highlight Areas (text/image/pages) <textarea name="highlightAreas" onChange={handleChange} /></label>
+            <label>Contact Info Placement <select name="contactPlacement" onChange={handleChange}>
+              <option value="individual">Individual Pages</option>
+              <option value="footer">Footer</option>
+            </select></label>
           </>
         );
       case 3:
         return (
           <>
-            <label>
-              Design Style:
-              <input type="text" name="designStyle" onChange={handleChange} placeholder="Professional, Gamified..." />
-            </label>
-            <label>
-              Sample Website Links:
-              <textarea name="sampleLinks" onChange={handleChange} />
-            </label>
-            <label>
-              Preferred Colors:
-              <input type="text" name="colors" onChange={handleChange} />
-            </label>
-            <label>
-              Preferred Fonts:
-              <input type="text" name="fonts" onChange={handleChange} />
-            </label>
-            <label>
-              Additional Design Requirements:
-              <textarea name="designNotes" onChange={handleChange} />
-            </label>
+            <label>Theme Style <input type="text" name="themeStyle" onChange={handleChange} /></label>
+            <label>Sample Websites <textarea name="sampleWebsites" onChange={handleChange} /></label>
+            <label>Preferred Colors <input type="text" name="preferredColors" onChange={handleChange} /></label>
+            <label>Preferred Fonts <input type="text" name="preferredFonts" onChange={handleChange} /></label>
           </>
         );
       case 4:
         return (
           <>
-            <label>
-              Needed Functionalities:
-              <textarea name="functionalities" onChange={handleChange} placeholder="Admin dashboard, AI analytics, search bar..." />
-            </label>
+            <label>Functionalities (comma-separated) <input type="text" name="functionalities" onChange={handleChange} /></label>
+            <label>Need Admin Dashboard? <select name="adminDashboard" onChange={handleChange}>
+              <option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+            <label>Need Analytics Dashboard (AI)? <select name="analyticsDashboard" onChange={handleChange}>
+              <option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+            <label>Search Bar Required? <select name="searchBar" onChange={handleChange}>
+              <option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
           </>
         );
       case 5:
         return (
-          <div>
-            <h2>Hosting & Domain</h2>
-            <label>Do you already have a domain?</label>
-            <input type="text" name="domain" onChange={handleChange} />
-            <label>Hosting Provider (if any)</label>
-            <input type="text" name="hosting" onChange={handleChange} />
-            <label>SSL Certificate required?</label>
-            <select name="ssl" onChange={handleChange}>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-          </div>
+          <>
+            <label>Do you own a domain? <select name="domain" onChange={handleChange}>
+              <option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+            <label>Hosting provider available? <select name="hosting" onChange={handleChange}>
+              <option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+            <label>SSL Certificate needed? <select name="ssl" onChange={handleChange}>
+              <option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+          </>
         );
       case 6:
         return (
-          <div>
-            <h2>Post-Deployment Support</h2>
-            <label>Weekly Support Needed?</label>
-            <select name="support" onChange={handleChange}>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-            <label>Project Timeline (in weeks)</label>
-            <input type="text" name="timeline" onChange={handleChange} />
-            <label>Estimated Budget</label>
-            <input type="text" name="budget" onChange={handleChange} />
-            <label>Can you provide necessary details?</label>
-            <select name="client_ready" onChange={handleChange}>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-          </div>
+          <>
+            <label>Weekly Support? <select name="weeklySupport" onChange={handleChange}>
+              <option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+            <label>Timeline <input type="text" name="timeline" onChange={handleChange} /></label>
+            <label>Budget <input type="text" name="budget" onChange={handleChange} /></label>
+            <label>Eligible to Provide Info? <select name="eligibility" onChange={handleChange}>
+              <option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+          </>
         );
       case 7:
         return (
-          <div>
-            <h2>Maintenance Mode</h2>
-            <label>Do you want the option to put the site into maintenance mode?</label>
-            <select name="maintenance_mode" onChange={handleChange}>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-          </div>
+          <label>Maintenance Mode Option? <select name="maintenanceMode" onChange={handleChange}>
+            <option value="yes">Yes</option><option value="no">No</option>
+          </select></label>
         );
       case 8:
         return (
-          <div>
-            <h2>Third-Party Integration</h2>
-            <label>List any third-party services or APIs to integrate</label>
-            <textarea name="third_party_services" onChange={handleChange} />
-          </div>
+          <>
+            <label>List of 3rd Party Integrations <textarea name="integrations" onChange={handleChange} /></label>
+          </>
         );
       case 9:
         return (
-          <div>
-            <h2>Website Backups</h2>
-            <label>Should regular backups be taken?</label>
-            <select name="backups" onChange={handleChange}>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-          </div>
+          <label>Website Backup Needed? <select name="backup" onChange={handleChange}>
+            <option value="yes">Yes</option><option value="no">No</option>
+          </select></label>
         );
       case 10:
         return (
-          <div>
-            <h2>Legal & Social Info</h2>
-            <label>Terms and Policies</label>
-            <textarea name="terms_policies" onChange={handleChange} />
-            <label>Social Media Links</label>
-            <textarea name="social_links" onChange={handleChange} />
-            <label>Certificates / Awards</label>
-            <textarea name="certificates_awards" onChange={handleChange} />
-          </div>
+          <>
+            <label>Terms & Policies <textarea name="terms" onChange={handleChange} /></label>
+            <label>Social Media Links <textarea name="socialLinks" onChange={handleChange} /></label>
+            <label>Certificates (govt) <input type="file" name="certificates" onChange={handleChange} /></label>
+            <label>Awards/Recognition <textarea name="awards" onChange={handleChange} /></label>
+          </>
         );
       case 11:
         return (
-          <div>
-            <h2>Custom Form Section</h2>
-            <label>Form Name</label>
-            <input type="text" name="custom_form_name" onChange={handleChange} />
-            <label>Sub-Requirement (description of content needed)</label>
-            <textarea name="custom_sub_requirement" onChange={handleChange} />
-            <label>Data Type</label>
-            <select name="custom_data_type" onChange={handleChange}>
-              <option value="text">Text</option>
-              <option value="dropdown">Dropdown</option>
-              <option value="file">File</option>
-            </select>
-          </div>
+          <>
+            <label>Can client edit this form? <select name="editableForm" onChange={handleChange}>
+              <option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+            <label>Additional Notes <textarea name="customFormNotes" onChange={handleChange} /></label>
+          </>
         );
       default:
-        return <div>Invalid Step</div>;
-    }
-  };
-
-  const handleNext = () => {
-    if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
+        return null;
     }
   };
 
   return (
-    <div className="multi-step-form">
-      <h1>{steps[currentStep]}</h1>
-      <form>
-        {renderStep()}
-        <div className="buttons">
-          <button type="button" onClick={handlePrevious} disabled={currentStep === 0}>
-            Previous
-          </button>
-          <button type="button" onClick={handleNext} disabled={currentStep === steps.length - 1}>
-            Next
-          </button>
+    <div className="multi-step-form" ref={formWrapperRef}>
+      <div className="progress-bar">
+        {steps.map((label, index) => (
+          <div className="progress-step" key={index}>
+            <div
+              className={`circle ${index === currentStep ? 'active' : index < currentStep ? 'completed' : ''}`}
+              onClick={() => goToStep(index)}
+            >
+              {index + 1}
+            </div>
+            {index < steps.length - 1 && <div className="line"></div>}
+            <div className="step-label">{label}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="form-container">
+        <form className="form-step">
+          {renderStep()}
+        </form>
+
+        <div className="form-navigation">
+          <button onClick={prevStep} disabled={currentStep === 0}>Back</button>
+          <button onClick={nextStep} disabled={currentStep === steps.length - 1}>Next</button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

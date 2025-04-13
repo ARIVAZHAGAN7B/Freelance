@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./Careers.css";
 
 const Careers = () => {
@@ -37,7 +38,9 @@ const Careers = () => {
           Shoot us your resume, portfolio, or GitHub at <strong>📧 codexcoders1@gamil.com</strong><br />
           Or fill out the form below and let’s start the conversation!
         </p>
+        <Link to = "/careersform">
         <button className="careers-button">Apply Now</button>
+        </Link>
       </div>
 
       <div className="careers-section">

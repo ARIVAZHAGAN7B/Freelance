@@ -1,0 +1,136 @@
+.careers-form-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9f9f9; /* Light background for the form */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input[type="file"] {
+  padding: 4px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #c5e1a5;
+  cursor: not-allowed;
+}
+
+.progress-bar {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.step {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  color: #555;
+}
+
+.step.current {
+  background-color: #4caf50;
+  color: white;
+}
+
+.step.completed {
+  background-color: #2196f3;
+  color: white;
+}
+
+.step:first-child {
+  margin-left: 0;
+}
+
+.step:last-child {
+  margin-right: 0;
+}
+
+/* Styling for multi-step form to improve readability */
+.step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.step-container input,
+.step-container select,
+.step-container textarea {
+  margin-bottom: 10px;
+}
+
+.step-container input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+.step-container .file-input {
+  padding: 4px;
+}
+
+/* Progress bar style adjustments */
+.progress-bar {
+  justify-content: space-between;
+}
+
+.step.current,
+.step.completed {
+  background-color: #4caf50;
+  color: white;
+}
+
+.step.completed {
+  background-color: #2196f3;
+}
