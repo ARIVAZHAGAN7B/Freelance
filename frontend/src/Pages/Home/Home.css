@@ -196,10 +196,10 @@ body, html {
   flex-wrap: wrap;
 }
 .testimonial-card {
-  background-color: #333;
-  padding: 2rem;
-  border-radius: 8px;
-  font-style: italic;
+  width: 100%;
+  max-width: 100%;  /* Prevent overflow */
+  margin-right: 16px;
+  box-sizing: border-box;
 }
 
 /* Footer Section */
@@ -225,7 +225,7 @@ body, html {
 .sticky-cta {
   position: fixed;
   bottom: 2rem;
-  right: 1rem;
+  right: 0;
   z-index: 100;
 }
 
@@ -295,18 +295,52 @@ body, html {
   font-weight: 500;
 }
 
-/* Existing styles here... (everything you posted) */
 
-/* ------------------- Responsive Styles ------------------- */
+/* Mobile Responsive Enhancements */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
 
-/* Tablets and small desktops */
-@media (max-width: 1024px) {
-  .showcase-grid,
-  .feature-grid,
-  .stats-grid,
-  .testimonials-list,
+  .hero-description {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .btn-primary {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
   .client-logos-list {
-    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonials-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial-card {
+    width: 100%;
+    margin-right: 16px;
   }
 
   .footer-links {
@@ -315,52 +349,24 @@ body, html {
   }
 
   .social-links {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-description {
-    font-size: 1.1rem;
-  }
-
-  .feature-card {
-    padding: 1.5rem;
+  .marquee-content {
+    animation: marquee 10s linear infinite;
+    gap: 1rem;
   }
 
   .service-card {
-    min-width: 160px;
-  }
-}
-
-/* Mobile devices */
-@media (max-width: 768px) {
-  .hero {
+    min-width: 180px;
     padding: 1rem;
+  }
+
+  .video-player {
+    width: 100%;
     height: auto;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-    max-width: 100%;
-  }
-
-  .btn-primary {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.95rem;
-  }
-
-  .showcase-grid,
-  .feature-grid,
-  .stats-grid {
-    grid-template-columns: 1fr;
   }
 
   .form {
@@ -368,94 +374,25 @@ body, html {
   }
 
   .input-field {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
-  .testimonial-card {
-    font-size: 0.95rem;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
+  .stat-card {
+    font-size: 1.5rem;
   }
 
   .sticky-cta {
-    right: 0.5rem;
-    bottom: 1rem;
+    position: fixed;
+    bottom: 5rem;
+    right: 1rem; /* adds a little padding from the edge */
+    width: auto; /* only as wide as the button inside */
+    z-index: 1000;
   }
-
-  .marquee-content {
-    gap: 1rem;
+  
+  .sticky-cta .btn-primary {
+    border-radius: 5px;
+    padding: 0.75rem 1.5rem; /* optional: make it look nicer */
   }
-
-  .video-wrapper {
-    padding: 1rem 0;
-  }
-
-  .video-player {
-    width: 100%;
-  }
-
-  .client-logo {
-    font-size: 0.9rem;
-    padding: 0.75rem;
-  }
-}
-
-/* Extra small devices (phones < 480px) */
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.75rem;
-  }
-
-  .hero-description {
-    font-size: 0.95rem;
-  }
-
-  .btn-primary {
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .input-field {
-    padding: 0.75rem;
-    font-size: 0.9rem;
-  }
-
-  .testimonial-card {
-    padding: 1rem;
-    font-size: 0.85rem;
-  }
-
-  .service-card {
-    min-width: 160px;
-    padding: 1rem;
-  }
-
-  .footer p {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-
-  .footer-links,
-  .social-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .social-link {
-    font-size: 0.85rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
+  
 }
 
