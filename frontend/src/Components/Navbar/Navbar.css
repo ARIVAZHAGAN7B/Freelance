@@ -1,125 +1,121 @@
-/* Navbar styles */
+/* General Styles - Already good */
 .navbar {
-    background-color: #0A192F;
-    color: #FFFFFF;
+  background-color: #0A192F;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 80px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoContainer img {
+  height: 50px;
+  object-fit: contain;
+}
+
+.logo {
+  height: 50px;
+  border-radius: 8px;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  color: #00BFFF;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #00BFFF;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.link:hover {
+  background-color: #008ccc;
+  transform: translateY(-2px);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #00BFFF;
+  border-radius: 2px;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 767px) {
+  .hamburger {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    height: 80px;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
   }
-  
-  .logoContainer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .logo {
-    height: 50px;
-    border-radius: 8px;
-  }
-  
-  .brand {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-    color: #00BFFF;
-  }
-  
+
   .navLinks {
-    display: flex;
-    gap: 20px;
-    list-style: none;
+    display: none;
   }
-  
+
   .mobileMenu {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin-top: 20px;
-    gap: 10px;
     align-items: center;
+    width: 100%;
+    background-color: #0A192F;
+    padding: 10px 0;
+    list-style: none;
+    animation: fadeIn 0.3s ease-in-out;
   }
-  
+
+  .mobileMenu li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
   .link {
-    text-decoration: none;
-    color: #FFFFFF;
-    background-color: #00BFFF;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-  }
-  
-  .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #00BFFF;
-    border-radius: 2px;
-  }
-  
-  /* Modal styles */
-  .modalOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
-  
-  .modal {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-  
-  .modalInput, .modalTextarea {
-    width: 100%;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 16px;
     padding: 10px;
-    margin: 10px 0;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    border-radius: 8px;
   }
-  
-  .modalTextarea {
-    height: 100px;
-    resize: none;
+}
+
+/* Optional: fade animation for smoother appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  .modalButton, .closeButton {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .modalButton {
-    background-color: #00BFFF;
-    color: white;
-  }
-  
-  .closeButton {
-    background-color: #ccc;
-    color: #000;
-  }
-  
+}

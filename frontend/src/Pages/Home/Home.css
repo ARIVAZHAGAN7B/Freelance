@@ -294,3 +294,168 @@ body, html {
   text-decoration: none;
   font-weight: 500;
 }
+
+/* Existing styles here... (everything you posted) */
+
+/* ------------------- Responsive Styles ------------------- */
+
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+  .showcase-grid,
+  .feature-grid,
+  .stats-grid,
+  .testimonials-list,
+  .client-logos-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .service-card {
+    min-width: 160px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .hero {
+    padding: 1rem;
+    height: auto;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .btn-primary {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .showcase-grid,
+  .feature-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    padding: 0 1rem;
+  }
+
+  .input-field {
+    font-size: 0.95rem;
+  }
+
+  .testimonial-card {
+    font-size: 0.95rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .sticky-cta {
+    right: 0.5rem;
+    bottom: 1rem;
+  }
+
+  .marquee-content {
+    gap: 1rem;
+  }
+
+  .video-wrapper {
+    padding: 1rem 0;
+  }
+
+  .video-player {
+    width: 100%;
+  }
+
+  .client-logo {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Extra small devices (phones < 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .input-field {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .testimonial-card {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .service-card {
+    min-width: 160px;
+    padding: 1rem;
+  }
+
+  .footer p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .footer-links,
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .social-link {
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+

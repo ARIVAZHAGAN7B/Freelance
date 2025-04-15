@@ -5,7 +5,7 @@ import "./Careers.css";
 const Careers = () => {
   return (
     <div className="careers-container">
-      <h1 className="careers-title">🚀 Join the <span className="highlight">CodeXCoders</span> Team</h1>
+      <h1 className="careers-title">🚀 Join the <span className="highlight">Codexcoders</span> Team</h1>
       <p className="careers-subtitle">
         Passionate about building digital experiences? So are we.
       </p>

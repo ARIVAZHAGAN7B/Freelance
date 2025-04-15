@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/codexcoders.png";
+import logo from "../../assets/codexcodersblue.png";
 import './Navbar.css';  // Import your CSS file
 
 const Navbar = () => {
@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="logoContainer">
         <img src={logo} alt="Logo" className="logo" />
-        <h1 className="brand">CODExCODERS</h1>
+        <h1 className="brand">CODEXCODERS</h1>
       </div>
 
       {isMobile ? (

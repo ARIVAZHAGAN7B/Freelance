@@ -125,19 +125,20 @@ blockquote footer {
 
 .lock-form h2 {
   margin-bottom: 1rem;
+  color: black;
 }
 
-.lock-form input,
-.lock-form textarea {
-  width: 100%;
+.lock-form form input,
+.lock-form form textarea {
+  width: 90%;
   padding: 10px;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
 }
 
-.lock-form button {
-  background-color: #4b0082;
+.lock-form form button {
+  background-color: #3498db;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -147,8 +148,8 @@ blockquote footer {
   transition: background-color 0.3s ease;
 }
 
-.lock-form button:hover {
-  background-color: #360063;
+.lock-form form button:hover {
+  background-color: #2980b9;
 }
 
 /* Mobile Responsiveness */

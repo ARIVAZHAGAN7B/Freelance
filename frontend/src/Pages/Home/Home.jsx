@@ -42,7 +42,7 @@ const HomePage = () => {
           <Link to="/build" className="btn-primary">Let’s Build Yours</Link>
         </section>
 
-        {/* 2. Showcase Your Work */}
+        {/* 2. Showcase Section */}
         <section className="showcase">
           <h2 className="section-title">Our Work</h2>
           <div className="showcase-grid">
@@ -111,18 +111,12 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* 6. Animated Scroll Effects */}
+        {/* 6. Stats Section */}
         <section className="stats">
           <div className="stats-grid">
-            <div className="stat-card">
-              10+ <div>Websites Delivered</div>
-            </div>
-            <div className="stat-card">
-              15+ <div>Happy Clients</div>
-            </div>
-            <div className="stat-card">
-              1+ <div>Years of Experience</div>
-            </div>
+            <div className="stat-card">10+ <div>Websites Delivered</div></div>
+            <div className="stat-card">15+ <div>Happy Clients</div></div>
+            <div className="stat-card">1+ <div>Years of Experience</div></div>
           </div>
         </section>
 
@@ -158,7 +152,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* 9. Featured Services */}
+        {/* 9. Services Marquee */}
         <section className="services">
           <h2 className="section-title">What We Offer</h2>
           <div className="marquee-wrapper">
@@ -170,8 +164,8 @@ const HomePage = () => {
                 'Web Apps',
                 'Dashboards',
                 'Booking Systems',
-                'Content Management Systems (CMS)',
-                'Real-Time Applications',
+                'CMS',
+                'Real-Time Apps',
                 'Social Media Platforms',
                 'Membership Systems'
               ].map((service, i) => (

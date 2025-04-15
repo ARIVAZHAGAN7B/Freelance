@@ -5,9 +5,8 @@ import Form from '../Form/Form';
 
 const BuildNow = () => {
   const [isLocked, setIsLocked] = useState(true); // Lock state for the form
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [description, setDescription] = useState('');
+  const [password,setPassword] = useState('');
 
   const websiteTypes = [
     { type: 'Portfolio', description: 'Show off your skills, projects, and personality. Perfect for students and professionals.' },
@@ -34,27 +33,18 @@ const BuildNow = () => {
             <h2>🔒 Submit Your Idea to Unlock</h2>
             <form onSubmit={handleApprove}>
               <input
-                type="text"
-                placeholder="Your Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-              <input
                 type="email"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <textarea
-                placeholder="Describe what you want to build..."
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
-              />
-              <button type="submit">Approve & Unlock</button>
-              <button type="button" onClick={() => setIsLocked(false)}>Cancel</button>
+              <input type="password" 
+              placeholder='passowrd'
+              value={password}
+              onChange={(e)=> setPassword(e.target.value)}
+              required/>
+              <button type="submit">Login</button>
             </form>
           </div>
         </div>
