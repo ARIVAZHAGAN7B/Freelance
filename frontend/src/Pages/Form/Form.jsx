@@ -27,6 +27,7 @@ const MultiStepForm = () => {
       ...prevData,
       [name]: files ? files[0] : value,
     }));
+    console.log(formData);
   };
 
   const nextStep = () => {
