@@ -64,9 +64,11 @@
     color: #3498db;
     text-decoration: none;
     transition: color 0.3s ease;
+    background-color: transparent;
   }
   
   .crew-link:hover {
     color: #61dafb;
+    background-color: transparent;
   }
   

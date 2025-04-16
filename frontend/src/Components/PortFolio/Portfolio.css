@@ -1,0 +1,127 @@
+/* Portfolio container */
+.portfolio-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header section */
+  .portfolio-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .portfolio-name {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .portfolio-role {
+    font-size: 1.2rem;
+    color: #777;
+    margin-top: 10px;
+  }
+  
+  /* Bio section */
+  .portfolio-bio {
+    margin-bottom: 30px;
+  }
+  
+  .portfolio-bio h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .portfolio-bio p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* Projects section */
+  .portfolio-projects h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .projects-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .project-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+  
+  .project-item h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .project-item p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  /* Skills section */
+  .portfolio-skills h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .skills-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .skills-list li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 8px;
+    padding-left: 10px;
+    position: relative;
+  }
+  
+  .skills-list li:before {
+    content: "•";
+    color: #4caf50;
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    top: 0;
+  }
+  
+  /* Footer section */
+  .portfolio-footer {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .portfolio-footer a {
+    font-size: 1.2rem;
+    color: #0066cc;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #f0f4f7;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+  }
+  
+  .portfolio-footer a:hover {
+    background-color: #0066cc;
+    color: #fff;
+  }
+  

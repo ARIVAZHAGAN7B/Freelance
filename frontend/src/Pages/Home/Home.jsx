@@ -183,7 +183,7 @@ const HomePage = () => {
           <div className="social-links">
             {[
               { platform: "Instagram", url: "https://www.instagram.com/codexcoders/" },
-              { platform: "LinkedIn", url: "https://www.linkedin.com/in/codexcoder-s-b2276a35b/" },
+              { platform: "LinkedIn", url: "https://www.linkedin.com/in/codexcoders-b2276a35b/" },
               { platform: "X", url: "https://x.com/codeXcoders1" }
             ].map((social, i) => (
               <a key={i} href={social.url} className="social-link" target="_blank" rel="noopener noreferrer">

@@ -10,6 +10,7 @@ import Careers from "../src/Pages/Careers/Careers";
 import Crew from "../src/Pages/Crew/Crew";
 import Form from '../src/Pages/Form/Form';
 import CareersForm from "../src/Components/CareersForm/Careersform"
+import Portfolio from '../src/Components/PortFolio/Portfolio';
 const AppLayout = () => {
   return (
       <Routes>
@@ -22,6 +23,7 @@ const AppLayout = () => {
         <Route path="/careers" element={<Careers />} />
         <Route path="/form" element={<Form />} />
         <Route path="/careersform" element={<CareersForm />} />
+        <Route path="/portfolio/:memberName" element={<Portfolio />} />
         <Route path="*" element={<Error />} />
       </Routes>
   );

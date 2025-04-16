@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./Crew.css";
 
 const crewMembers = [
@@ -42,9 +43,9 @@ const Crew = () => {
             <h2 className="crew-name">{member.name}</h2>
             <h3 className="crew-role">{member.title}</h3>
             <p className="crew-description">{member.description}</p>
-            <a href={member.portfolio} target="_blank" rel="noopener noreferrer" className="crew-link">
-              View Portfolio →
-            </a>
+            <Link to={`/portfolio/${encodeURIComponent(member.name)}`}>
+              <button className="crew-link">View Portfolio</button>
+            </Link>
           </div>
         ))}
       </div>
