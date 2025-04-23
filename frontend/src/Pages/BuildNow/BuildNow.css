@@ -15,7 +15,19 @@
   border-bottom: 2px solid #3498db;
   padding-bottom: 10px;
 }
+.custom-link {
+  color: #3498db;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
 
+.custom-link:hover {
+  background-color: #2980b9;
+  color: white;
+}
 .build-now-container p {
   font-size: 1.2rem;
   text-align: center;
@@ -121,6 +133,7 @@ blockquote footer {
   max-width: 400px;
   width: 90%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .lock-form h2 {
@@ -151,6 +164,110 @@ blockquote footer {
 .lock-form form button:hover {
   background-color: #2980b9;
 }
+/* Container for centering the button */
+.form-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Add margin to space out from other elements */
+}
+
+/* Style for the button */
+.form-button {
+  width: 80%; /* Make the button width 80% of the container */
+  padding: 14px 28px; /* Add padding for more clickable area */
+  font-size: 1.2rem; /* Slightly larger text */
+  background-color: #00bcd4; /* Bright, vibrant color */
+  color: white; /* White text for contrast */
+  font-weight: 600; /* Bold text for emphasis */
+  border-radius: 50px; /* Rounded edges for a smooth button */
+  border: none; /* Remove default border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Add some shadow for a 3D effect */
+  cursor: pointer; /* Indicate that it's clickable */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+  text-decoration: none; /* Remove underline from Link */
+}
+
+.form-button:hover {
+  background-color: #00acc1; /* Darker shade on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Icon styling for a neat look */
+.form-button svg {
+  margin-right: 8px; /* Space between the icon and text */
+  font-size: 1.3rem; /* Slightly larger icon */
+}
+
+.form-button:focus {
+  outline: none; /* Remove outline on button click */
+}
+
+
+.floating-build-button {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  background: linear-gradient(to top right, #ffffff, #e0f7fa);
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 26px;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  border: 2px solid #b2ebf2;
+}
+
+.floating-build-button:hover {
+  background: #b2ebf2;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.google-login-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.google-login-container h1 {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* Optional: Style the Google login button container */
+.google-login-container .google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #555;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.google-login-container .google-button:hover {
+  background-color: #f7f7f7;
+  transform: translateY(-1px);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {

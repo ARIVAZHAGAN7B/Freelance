@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './BuildNow.css'; // Custom CSS for styling
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { FaCloud } from 'react-icons/fa';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';  // Import GoogleLogin
+import { jwtDecode } from "jwt-decode";
 import Form from '../Form/Form';
 
 const BuildNow = () => {
   const [isLocked, setIsLocked] = useState(true); // Lock state for the form
   const [email, setEmail] = useState('');
-  const [password,setPassword] = useState('');
+  const [password, setPassword] = useState('');
 
   const websiteTypes = [
     { type: 'Portfolio', description: 'Show off your skills, projects, and personality. Perfect for students and professionals.' },
@@ -17,12 +20,36 @@ const BuildNow = () => {
     { type: 'Custom Requests', description: 'Got a unique idea? We’ll bring it to life.' },
   ];
 
+  // Check if 'buildAccess' exists in localStorage when the component mounts
+  useEffect(() => {
+    const buildAccess = localStorage.getItem('buildAccess');
+    if (buildAccess === 'true') {
+      setIsLocked(false); // Unlock the page if 'buildAccess' is set to true
+    }
+  }, []);
+
   // Function to handle form submission and unlock the page
   const handleApprove = (e) => {
     e.preventDefault();
     localStorage.setItem('buildAccess', 'true'); // Store in local storage to persist the state
     setIsLocked(false); // Unlock the page
-    alert('Thanks for pitching! The page is now unlocked.');
+  };
+
+  // Google login success callback
+  const responseGoogle = (credentialResponse) => {
+    if (credentialResponse.credential) {
+      const decoded = jwtDecode(credentialResponse.credential);
+      console.log("Google User Info:", decoded);
+  
+      // Optional: Save to localStorage
+      localStorage.setItem('buildAccess', 'true');
+      localStorage.setItem('googleUser', JSON.stringify(decoded));
+  
+      // Optional: If you want to unlock content
+      // setIsLocked(false);
+    } else {
+      console.error("Google Login Failed", credentialResponse);
+    }
   };
 
   return (
@@ -30,7 +57,7 @@ const BuildNow = () => {
       {isLocked && (
         <div className="lock-overlay">
           <div className="lock-form">
-            <h2>🔒 Submit Your Idea to Unlock</h2>
+            <h2>Login🔒</h2>
             <form onSubmit={handleApprove}>
               <input
                 type="email"
@@ -39,19 +66,35 @@ const BuildNow = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <input type="password" 
-              placeholder='passowrd'
-              value={password}
-              onChange={(e)=> setPassword(e.target.value)}
-              required/>
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
               <button type="submit">Login</button>
             </form>
           </div>
+          <GoogleOAuthProvider clientId="502410409329-q0ndgl4dm9pn2iabtol4t0ilvec489pa.apps.googleusercontent.com">
+                <div className="google-login-container">
+                  <h1>Login with Google</h1>
+                  <GoogleLogin
+                    onSuccess={responseGoogle}
+                    onError={() => console.log('Login Failed')}
+                  />
+                </div>
+          </GoogleOAuthProvider>
         </div>
       )}
 
       <h1 className="build-now-title">Build Your Webpage with CodeXCoders ✨</h1>
       <p>Your Idea. Our Code. One Stunning Website.</p>
+      <Link to="/form" className="custom-link">
+        <div className="form-btn">
+          <button className="form-button"><FaCloud style={{ marginRight: '8px' }} />Build Now</button>
+        </div>
+      </Link>
 
       <div className="build-now-content">
         <h2>🛠️ What We Can Build for You:</h2>
@@ -78,6 +121,8 @@ const BuildNow = () => {
           <li>We Plan & Design – UX wireframes, mockups, and a clear roadmap.</li>
           <li>We Build It – Using clean, scalable code.</li>
           <li>Launch & Support – Go live + get post-launch support.</li>
+          <li>You will have a Timeline and Roadmap (A clean split of your projects) and seeing your project sample deployed for real-time changes.</li>
+          <li>Build Your Web in Less Than 1 Day (Planning) + 3 Days (Building).</li>
         </ol>
 
         <h2>💬 What Our Clients Say:</h2>
@@ -90,10 +135,14 @@ const BuildNow = () => {
 
         <h3>✍️ Ready to Build?</h3>
         <p>
-          📬 <strong>Reach Out Now</strong> – Let’s chat about your idea and get you a free quote. <br />
-          🧾 Or, <Link to="/form">[Fill Out This Form]</Link> to get started right away. <br />
-          🎯 We reply within 24 hours, guaranteed.
+          📬 <strong>Reach Out Now</strong> – Let’s chat about your idea and get you Website Within 1 Day (Planning) + 3 Days (Building). <br />
+          🎯 We reply within a few hours, guaranteed.
         </p>
+        <Link to="/form" className="custom-link">
+          <div className="form-btn">
+            <button className="form-button"><FaCloud style={{ marginRight: '8px' }} />Build Now</button>
+          </div>
+        </Link>
       </div>
     </div>
   );
