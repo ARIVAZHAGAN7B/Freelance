@@ -215,7 +215,7 @@ const MultiStepForm = () => {
 
         <div className="form-navigation">
           <button onClick={prevStep} disabled={currentStep === 0}>Back</button>
-          <button onClick={nextStep} disabled={currentStep === steps.length - 1}>Next</button>
+          <button onClick={nextStep} disabled={currentStep === steps.length - 1 }>Next</button>
         </div>
       </div>
     </div>

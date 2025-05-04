@@ -42,7 +42,9 @@
   margin-bottom: 2rem;
 }
 
-.build-now-table th,
+.build-now-table thead th {
+  color: black;
+}
 .build-now-table td {
   padding: 1rem;
   text-align: left;

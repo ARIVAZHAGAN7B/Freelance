@@ -99,34 +99,6 @@ const exp7 = `CREATE DATABASE IF NOT EXISTS BankingDB; USE BankingDB; CREATE TAB
 
   return (
     <div className="homepage">
-      <div>
-        <div>
-          <h1>Exp 1</h1>
-          <pre>{sqlCode}</pre>
-        </div>
-        <div>
-          <h1>Exp 2</h1>
-          <pre>{queries}</pre>
-        </div>
-        <div>
-          <h1>Exp 4</h1>
-          <pre>{exp4}</pre>
-        </div>
-        <div>
-          <h1>exp5</h1>
-          <pre>{exp51}</pre>
-          <pre>{exp52}</pre>
-          <pre>{exp53}</pre>
-        </div>
-        <div>
-          <h1>Exp 6</h1>
-          <pre>{exp6}</pre>
-        </div>
-        <div>
-          <h1>Exp 7</h1>
-          <pre>{exp7}</pre>
-        </div>
-      </div>
       <div className="container">
         {/* 1. Hero Section */}
         <section className="hero">
@@ -139,10 +111,10 @@ const exp7 = `CREATE DATABASE IF NOT EXISTS BankingDB; USE BankingDB; CREATE TAB
         <section className="showcase">
           <h2 className="section-title">Our Work</h2>
           <div className="showcase-grid">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            {["Farmer", "Medical", "AgriCenter", "Hotel", "Shop", "Tution", "Buildnew", "Agri Trader"].map((i) => (
               <div key={i} className="showcase-card">
                 <div className="showcase-image"></div>
-                <div className="showcase-info">Project {i}</div>
+                <div className="showcase-info">{i}</div>
               </div>
             ))}
           </div>
